@@ -1,12 +1,21 @@
 import { Page, Document, Text, View, StyleSheet, PDFViewer, Font } from '@react-pdf/renderer';
 import Header from './Header';
 import TestingPage from './TestingPage';
+import { content } from '../constant/data';
 // import { useState } from 'react';
 
-
-Font.register({ family: 'Helvetica', src: '/path/to/helvetica.ttf' });
+Font.register({
+    family: 'Times-Bold',
+    fontWeight: 'bold',
+});
 
 const styles = StyleSheet.create({
+    Family: {
+        fontFamily: 'Times-Bold'
+    },
+    boldText: {
+        fontWeight: 'bold'
+    },
     page: {
         fontFamily: 'Helvetica',
         paddingTop: 20,
@@ -31,7 +40,7 @@ const styles = StyleSheet.create({
 const PdfDocument = () => {
     const dataArray = [];
 
-    for (let i = 1; i <= 30; i++) {
+    for (let i = 1; i <= 3; i++) {
         dataArray.push({
             title: `Item ${i}`,
             description: `Description for Item ${i}`,
@@ -42,12 +51,16 @@ const PdfDocument = () => {
         <PDFViewer style={{ width: '100%', height: '100vh' }}>
             <Document>
                 <Page size="A4" style={styles.page}>
-                    
                     <Header />
-                
-                {dataArray.map((item, index) => (
+                {/* ----- NSE VIEW --------------- */}
+                    <View style={{ backgroundColor: "#C6C6C5", width: "100%", padding: "4px", textAlign: "center",marginTop: "-15px"}}>
+                        <Text style={[ styles.Family, {fontSize: "8px"}]}>NSE</Text>
+</View>
+                    
+
+                {content.map((data, index) => (
                         <View key={index}>
-                            <TestingPage title={item.title} description={item.description} />
+                        <TestingPage data={data} />
                            </View>
                 ))}
                     <View style={styles.footer} render={({ pageNumber, totalPages }) => (
