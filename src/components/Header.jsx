@@ -46,9 +46,9 @@ const styles = StyleSheet.create({
     },
     HeaderTagLeft: {
         flexDirection: "row",
-        justifyContent: "space-around",
+        justifyContent: "space-between",
         fontSize: "10px",
-        width: "49%",
+        width: "47%",
         marginBottom: "5px",
         textDecoration: "underline"
     },

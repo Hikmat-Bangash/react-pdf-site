@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
         width: "100%",
         flexDirection: "row",
         justifyContent: "space-between",
-        marginTop: "2px"
-
+        marginTop: "10px",
+        alignItems: "baseline",
     },
     SecondViewLeftParent: {
         width: "53%",
@@ -47,11 +47,12 @@ const styles = StyleSheet.create({
 
     },
     SecondViewRightParent: {
-        width: "48%",
+        width: "46%",
         flexDirection: "column",
         justifyContent: "center",
         alignContent: "flex-end",
-        gap: "6px"
+        gap: "6px",
+       
     },
     SecondViewRight: {
         width: "100%",
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
         textAlign: "left"
     },
     TotalViewLeft: {
-        width: "54%",
+        width: "51%",
         flexDirection: "row",
         justifyContent: "space-around",
         fontSize: "9px",
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
         fontSize: "9px",
     },
     LastViewParent: {
-        width: "98%",
+        width: "90%",
         marginTop: "8px",
         flexDirection: "row",
         justifyContent: "flex-end"
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
 // ------ JSX SECTION ---------
 const TestingPage = ({data}) => {
 
-    console.log(data.purchase)
+    console.log(data.NewPage)
 
 
     return (
@@ -123,49 +124,49 @@ const TestingPage = ({data}) => {
                 </View>
                 {/* second View */}
                 <View style={styles.SecondView}>
-                    {/* ---- left section  -----*/}
+                    {/* ---- left Purchase section  -----*/}
                     <View style={styles.SecondViewLeftParent}>
 
                     
                     {data.purchase.map((data, index) => (
                         <View key={index} style={styles.SecondViewLeft}>
 
-                            {data?.Date == "Opening" || data?.Date == "Closing" ? <Text style={[styles.Family, { marginRight: "-8px" }]}>{data.Date}</Text> :
-                                <Text >{data.Date}</Text>
+                            {data?.Date == "Opening" || data?.Date == "Closing" ? <Text style={[styles.Family, { width: "17%", }]}>{data.Date}</Text> :
+                                <Text style={{ width: "17%",  }}>{data.Date}</Text>
                             }
 
-                            <Text>{data?.Unit}</Text>
+                            <Text style={{ width: "17%",  }}>{data?.Unit}</Text>
 
-                            {data?.Date == "Opening" || data?.Date == "Closing" ? <Text style={[styles.Family]}>{data?.Rate}</Text> :
-                                <Text >{data?.Rate}</Text>
+                            {data?.Date == "Opening" || data?.Date == "Closing" ? <Text style={[styles.Family, { width: "17%",  }]}>{data?.Rate}</Text> :
+                                <Text style={{ width: "17%",  }}>{data?.Rate}</Text>
                             }
 
-                            {data?.Date == "Opening" || data?.Date == "Closing" ? <Text style={[styles.Family]}>{data?.amount}</Text> :
-                                <Text >{data?.amount}</Text>
+                            {data?.Date == "Opening" || data?.Date == "Closing" ? <Text style={[styles.Family, { width: "17%",  }]}>{data?.amount}</Text> :
+                                <Text style={{ width: "17%",  }}>{data?.amount}</Text>
                             }
 
 
                         </View>
                     ))}
                     </View>
-                    {/* ------ right section --- */}
+                    {/* ------ right Sale section --- */}
                     <View style={styles.SecondViewRightParent}>
                     {data.sale.map((data, index) => (
                          
                      
                     <View key={index} style={styles.SecondViewRight}>
-                            {data?.Date == "Closing" || data?.Date == "Opening" ? <Text style={[styles.Family]}>{data.Date}</Text> :
-                            <Text>{data.Date}</Text>
+                            {data?.Date == "Closing" || data?.Date == "Opening" ? <Text style={[styles.Family, { width: "15%", }]}>{data.Date}</Text> :
+                                <Text style={{ width: "15%", }}>{data.Date}</Text>
                         }
                             
-                        <Text>{data?.Unit}</Text>
+                            <Text style={{ width: "15%", }}>{data?.Unit}</Text>
                     
-                            {data?.Date == "Closing" || data?.Date == "Opening" ? <Text style={[styles.Family]}>{data?.Rate}</Text> :
-                            <Text>{data?.Rate}</Text>
+                            {data?.Date == "Closing" || data?.Date == "Opening" ? <Text style={[styles.Family, { width: "15%", }]}>{data?.Rate}</Text> :
+                                <Text style={{ width: "15%", }}>{data?.Rate}</Text>
                         }
                         
                         
-                            <Text>{data?.amount}</Text>
+                            <Text style={{ width: "15%", }}>{data?.amount}</Text>
                         </View>
                     ))}
                     </View>
@@ -176,23 +177,23 @@ const TestingPage = ({data}) => {
                 <View style={styles.TotalViewParent}>
                     {/* leftOne View  */}
                     <View style={styles.TotalViewLeft}>
-                        <Text style={{ textAlign: "left" }}>
+                        <Text style={{ width: "14%",  }}>
                                 {data?.Total?.total}
                             {/* below is the dummy Text tag just for indentation */}
-                            <Text style={{ color: "white" }}>llllll</Text>
+                            <Text style={{ color: "white", width: "14%",  }}></Text>
                         </Text>
-                            <Text>{data?.Total?.PurchaseUnit}</Text>
-                        <Text style={{ color: "white" }}> dummy</Text>
-                            <Text>{data?.Total?.Purchaseamount} </Text>
+                        <Text style={{ width: "14%",  }}>{data?.Total?.PurchaseUnit}</Text>
+                        <Text style={{ color: "white", width: "14%",   }}> </Text>
+                        <Text style={{ width: "14%",  }}>{data?.Total?.Purchaseamount} </Text>
                     </View>
                     {/* RightOne View  */}
                     <View style={styles.TotalViewRight}>
-                        <Text style={{ color: "white" }}>
-                            dummy data
+                        <Text style={{ color: "white", width: "14%",  }}>
+                            
                         </Text>
-                            <Text>{data?.Total?.SaleUnit}</Text>
-                        <Text style={{ color: "white" }}>234324 </Text>
-                            <Text>{data?.Total?.SaleAmount} </Text>
+                        <Text style={{ width: "14%",  }}>{data?.Total?.SaleUnit}</Text>
+                        <Text style={{ color: "white", width: "14%",  }}> </Text>
+                        <Text style={{ width: "14%",  }}>{data?.Total?.SaleAmount} </Text>
                     </View>
                     {/* -----Below is total View closing tag ----- */}
                 </View>
