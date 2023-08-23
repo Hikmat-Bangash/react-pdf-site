@@ -329,8 +329,8 @@ export const content = [
       netAmount: "32,878.50 Dr",
     },
   },
-  // 8th section
 
+  // 8th section
   {
     NewPage: true,
     heading: "BALKRISIND 29MAR23",
@@ -363,4 +363,6 @@ export const content = [
       netAmount: "5,400.00 Dr",
     },
   },
+
+  
 ];
